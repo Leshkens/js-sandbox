@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    nodejs:
+        image: node:${NODEJS_VERSION}
+        container_name: ${COMPOSE_PROJECT_NAME}_nodejs
+        tty: true
+        working_dir: '/var/www/app'
+        ports:
+            - '${PROJECT_IP}:80:80'
+        volumes:
+            - './app:/var/www/app'
